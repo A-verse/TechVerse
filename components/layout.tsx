@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { SkipNavContent } from '@reach/skip-nav';
+
 import { NAVIGATION } from '@lib/constants';
+
 import styles from './layout.module.css';
+
 import Logo from './icons/icon-logo';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
-import React from 'react';
 import DemoButton from './hms/demo-cta';
 import RoomCta from './hms/demo-cta/room-cta';
 import { hmsConfig } from './hms/config';
@@ -46,7 +48,9 @@ export default function Layout({
 }: Props) {
   const router = useRouter();
   const activeRoute = router.asPath;
+
   const disableCta = ['/schedule', '/speakers', '/expo', '/jobs'];
+
   return (
     <>
       <div className={styles.background}>
@@ -54,12 +58,13 @@ export default function Layout({
           <header className={cn(styles.header)}>
             <div className={styles['header-logos']}>
               <MobileMenu key={router.asPath} />
+
               <Link href="/" className={styles.logo}>
                 {/* eslint-disable-next-line */}
-
                 <Logo />
               </Link>
             </div>
+
             <div className={styles.tabs}>
               {NAVIGATION.map(({ name, route }) => (
                 <a
@@ -84,12 +89,14 @@ export default function Layout({
             )}
           </header>
         )}
+
         <ViewSource />
+
         <div className={styles.page}>
-          <main className={styles.main} style={layoutStyles}>
-            <SkipNavContent />
+          <main className={styles.main} style={layoutStyles} id="main-content">
             <div className={cn(styles.full, className)}>{children}</div>
           </main>
+
           {!activeRoute.startsWith('/stage') && <Footer />}
         </div>
       </div>

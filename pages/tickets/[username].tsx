@@ -17,11 +17,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Error from 'next/error';
 import Head from 'next/head';
-import { SkipNavContent } from '@reach/skip-nav';
+
 import { getUserByUsername } from '@lib/db-api';
 
 import Page from '@components/page';
 import ConfContent from '@components/index';
+
 import { SITE_URL, SITE_NAME, META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
@@ -55,7 +56,7 @@ export default function TicketShare({ username, ticketNumber, name, usernameFrom
       <Head>
         <meta name="robots" content="noindex" />
       </Head>
-      <SkipNavContent />
+
       <ConfContent
         defaultUserData={{
           username: username || undefined,
@@ -70,6 +71,7 @@ export default function TicketShare({ username, ticketNumber, name, usernameFrom
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const username = params?.username?.toString() || null;
+
   let name: string | null | undefined;
   let ticketNumber: number | null | undefined;
 
@@ -78,8 +80,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     name = user.name ?? user.username;
     ticketNumber = user.ticketNumber;
   }
+
   if (!ticketNumber) {
-    return { notFound: true, revalidate: 5 };
+    return {
+      notFound: true,
+      revalidate: 5
+    };
   }
 
   return {
