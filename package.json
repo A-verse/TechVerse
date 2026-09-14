@@ -5,6 +5,7 @@
   "description": "TechVerse, a modern virtual conference and event experience built with Next.js.",
   "author": "AK",
   "license": "MIT",
+  "packageManager": "pnpm@10.15.1",
   "engines": {
     "node": ">=20"
   },
@@ -20,7 +21,7 @@
     "@100mslive/react-icons": "^0.10.9",
     "@100mslive/react-sdk": "^0.10.9",
     "@hcaptcha/react-hcaptcha": "^0.3.7",
-    "@radix-ui/react-dialog": "0.1.5",
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "0.1.4",
     "@radix-ui/react-tabs": "0.1.4",
     "@reach/skip-nav": "0.12.1",
