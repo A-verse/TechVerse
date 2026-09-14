@@ -1,0 +1,6 @@
+{
+  "name": "TechVerse",
+  "description": "Content model for the TechVerse virtual conference experience.",
+  "datocmsApiTokenEnvName": "DATOCMS_READ_ONLY_API_TOKEN",
+  "buildCommand": "npm run build"
+}
