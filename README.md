@@ -1,11 +1,17 @@
  <p align="center">
-  <img src="public/favicon.ico" alt="TechVerse Logo" width="90" />
+  <img src="public/favicon.ico" alt="TechVerse Logo" width="150" />
 </p>
 
 <h1 align="center">TechVerse</h1>
 
 <p align="center">
-  A virtual event platform for live stages, speakers, schedules, expo, and career opportunities.
+  <strong>Virtual Events • Live Experiences • Career Opportunities</strong>
+</p>
+
+<p align="center">
+  A virtual event platform that brings live stages, speaker sessions,<br/>
+  event schedules, interactive expo experiences, and career opportunities<br/>
+  together in one connected digital destination.
 </p>
 
 <p align="center">
@@ -17,71 +23,51 @@
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,git,github,vercel" alt="Tech Stack Icons" />
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,git,github,vercel&perline=9" alt="Tech Stack Icons" />
 </p>
 
 ---
 
+## ✨ Highlights
+
 <table>
 <tr>
-<td width="50%" valign="top">
+<th align="left">🎤 Events</th>
+<th align="left">🌐 Experiences</th>
+<th align="left">💼 Careers</th>
+<th align="left">⚙️ Platform</th>
+</tr>
+<tr>
+<td valign="top">
 
-## Overview
-
-TechVerse is a virtual event platform designed to bring event experiences together in one place. Users can explore event information, browse schedules and speakers, discover expo and career opportunities, and join live stages.
-
-## Features
-
-- **Event Hub:** Explore event sections and available content.
-- **Schedule:** Browse event sessions and timing.
-- **Speakers:** Discover event speakers.
-- **Expo:** Explore expo content and participating organizations.
-- **Jobs:** Browse career and job opportunities.
-- **Live Stages:** Access stage pages and join live sessions.
-- **LiveKit Integration:** Supports real-time audio/video experiences.
-- **Responsive UI:** Designed for desktop and mobile screens.
-
-## Tech Stack
-
-| Technology   | Usage                         |
-| ------------ | ----------------------------- |
-| Next.js      | React framework and routing   |
-| React        | User interface                |
-| TypeScript   | Type-safe development         |
-| Tailwind CSS | Styling and responsive design |
-| Supabase     | Backend services and database |
-| PostgreSQL   | Relational database           |
-| LiveKit      | Real-time audio/video         |
-| Vercel       | Deployment                    |
+- Live stages
+- Speaker sessions
+- Event schedules
+- Event hub
 
 </td>
-<td width="50%" valign="top">
+<td valign="top">
 
-## Screenshots
+- Virtual expo
+- Interactive experiences
+- Live audio/video
+- Responsive interface
 
-<p align="center">
-  <img src="media/dashboard.png" width="48%" alt="Dashboard" />
-  <img src="media/stage.png" width="48%" alt="Live Stage" />
-</p>
+</td>
+<td valign="top">
 
-<p align="center">
-  <img src="media/join.png" width="48%" alt="Join Stage" />
-  <img src="media/preview.png" width="48%" alt="Preview" />
-</p>
+- Career opportunities
+- Job discovery
+- Organization showcase
 
-<p align="center">
-  <img src="media/ar-1.png" width="48%" alt="AR View 1" />
-  <img src="media/ar-2.png" width="48%" alt="AR View 2" />
-</p>
+</td>
+<td valign="top">
 
-<p align="center">
-  <img src="media/as-1.png" width="48%" alt="AS View 1" />
-  <img src="media/as-2.png" width="48%" alt="AS View 2" />
-</p>
-
-<p align="center">
-  <img src="media/cms.png" width="90%" alt="CMS" />
-</p>
+- Next.js
+- TypeScript
+- Supabase
+- PostgreSQL
+- LiveKit
 
 </td>
 </tr>
@@ -89,86 +75,86 @@ TechVerse is a virtual event platform designed to bring event experiences togeth
 
 ---
 
-## Getting Started
+## 🚀 Overview
 
-### Prerequisites
+TechVerse is a virtual event platform designed to bring event experiences together in one place. Users can explore event information, browse schedules and speakers, discover expo and career opportunities, and join live stages.
 
-- Node.js
-- npm
-- Supabase project credentials
-- LiveKit credentials for live-stage functionality
+The platform combines event discovery, live interaction, and career exploration into a unified digital experience.
 
-### Installation
+---
 
-1. Clone the repository:
+## 🎯 Features
 
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-   ```
+<table>
+<tr>
+<td width="50%" valign="top">
 
-2. Move into the project directory:
+### 🎤 Event Experience
 
-   ```bash
-   cd YOUR_REPOSITORY
-   ```
+- **Event Hub:** Explore event sections and available content.
+- **Schedule:** Browse event sessions and timing.
+- **Speakers:** Discover event speakers.
+- **Live Stages:** Access stage pages and join live sessions.
 
-3. Install dependencies:
+</td>
+<td width="50%" valign="top">
 
-   ```bash
-   npm install
-   ```
+### 🌐 Expo & Careers
 
-4. Create your environment file:
+- **Expo:** Explore expo content and participating organizations.
+- **Jobs:** Browse career and job opportunities.
+- **LiveKit Integration:** Supports real-time audio/video experiences.
+- **Responsive UI:** Designed for desktop and mobile screens.
 
-   ```bash
-   cp .env.example .env.local
-   ```
+</td>
+</tr>
+</table>
 
-   On Windows PowerShell:
+---
 
-   ```powershell
-   Copy-Item .env.example .env.local
-   ```
+## 🛠️ Tech Stack
 
-5. Add the required environment variables to `.env.local`.
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,git,github,vercel&perline=9" alt="Tech Stack Icons" />
+</p>
 
-6. Start the development server:
+<table>
+<tr>
+<td width="50%" valign="top">
 
-   ```bash
-   npm run dev
-   ```
+### Frontend
 
-7. Open http://localhost:3000.
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
 
-## Environment Variables
+### Backend & Database
 
-Configure the variables required by your project in `.env.local`.
+- Supabase
+- PostgreSQL
 
-```env
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
+</td>
+<td width="50%" valign="top">
 
-# LiveKit
-LIVEKIT_URL=
-LIVEKIT_API_KEY=
-LIVEKIT_API_SECRET=
-```
+### Real-Time Communication
 
-Use `.env.example` as the source of truth for the complete variable list. Never commit `.env.local` or expose private server-side credentials.
+- LiveKit
+- Real-time audio/video experiences
 
-## Available Scripts
+### Deployment & Tools
 
-```bash
-npm run dev
-npm run build
-npm run start
-npm run lint
-```
+- Vercel
+- Git
+- GitHub
 
-Run only the scripts defined in your project's `package.json`.
+</td>
+</tr>
+</table>
 
-## Project Structure
+---
+
+## 🏗️ Project Structure
 
 ```text
 .
@@ -192,14 +178,103 @@ Run only the scripts defined in your project's `package.json`.
 
 _Update the structure above if your actual folders differ._
 
-## Security Notes
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+- Supabase project credentials
+- LiveKit credentials for live-stage functionality
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd YOUR_REPOSITORY
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Create your environment file:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   On Windows PowerShell:
+
+   ```powershell
+   Copy-Item .env.example .env.local
+   ```
+
+5. Configure the required environment variables in `.env.local`.
+
+6. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+7. Open http://localhost:3000.
+
+---
+
+## 🔐 Environment Variables
+
+Configure the variables required by your project in `.env.local`.
+
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+# LiveKit
+LIVEKIT_URL=
+LIVEKIT_API_KEY=
+LIVEKIT_API_SECRET=
+```
+
+Use `.env.example` as the source of truth for the complete variable list. Never commit `.env.local` or expose private server-side credentials.
+
+---
+
+## 📜 Available Scripts
+
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
+
+Run only the scripts defined in your project's `package.json`.
+
+---
+
+## 🔒 Security Notes
 
 - Keep private API keys and secrets on the server.
 - Do not commit environment files containing credentials.
 - Protect authenticated and role-restricted routes on the server.
 - Validate access before issuing LiveKit room tokens.
 
-## Deployment
+---
+
+## 🚀 Deployment
 
 The application can be deployed to Vercel or another compatible hosting provider.
 
@@ -210,6 +285,8 @@ Before deployment:
 3. Test the production build.
 4. Confirm live-stage functionality with valid LiveKit credentials.
 
-## License
+---
+
+## 📄 License
 
 Add a license file if you intend to distribute this project under an open-source license.
