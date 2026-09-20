@@ -86,7 +86,7 @@ const Join: React.FC<Props> = ({ name, setName, role, setRole, loading, error, o
             ? 'Viewer: watch the live session without publishing camera or microphone.'
             : role === 'speaker'
               ? 'Speaker: join the stage with camera and microphone.'
-              : 'Moderator: join the stage with camera, microphone and moderation permissions.'}
+              : 'Moderator: join with camera, microphone and moderation permissions. Restricted to approved TechVerse accounts — you\u2019ll see an error here if yours isn\u2019t one of them.'}
         </p>
 
         {/* Error */}

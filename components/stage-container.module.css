@@ -110,6 +110,17 @@
   margin-right: var(--space-4x);
 }
 
+.messageContainerWrap {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.messageContainerWrap p {
+  color: var(--secondary-color);
+  max-width: 480px;
+}
+
 @media screen and (min-width: 600px) {
   .bottom {
     align-items: center;
@@ -125,6 +136,15 @@
   .messageContainer {
     flex-direction: row;
     align-items: center;
+  }
+
+  .messageContainerWrap {
+    flex-direction: column;
+    align-items: initial;
+  }
+
+  .messageContainerWrap .stageName {
+    margin-bottom: var(--space-2x);
   }
 
   .stageName {

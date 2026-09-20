@@ -54,6 +54,11 @@
   display: none;
 }
 
+.noSessions {
+  color: var(--secondary-color);
+  margin: 0;
+}
+
 @media screen and (min-width: 1032px) {
   .schedule {
     height: unset;

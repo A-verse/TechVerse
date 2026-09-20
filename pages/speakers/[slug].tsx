@@ -30,8 +30,8 @@ type Props = {
 
 export default function SpeakerPage({ speaker }: Props) {
   const meta = {
-    title: 'TechVerse',
-    description: META_DESCRIPTION
+    title: `${speaker.name} - TechVerse`,
+    description: speaker.bio || META_DESCRIPTION
   };
 
   return (

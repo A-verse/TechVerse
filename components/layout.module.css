@@ -30,6 +30,12 @@
   flex: 1;
 }
 
+@media screen and (max-width: 1031px) {
+  .page-with-bottom-nav {
+    padding-bottom: 64px;
+  }
+}
+
 .main {
   flex: 1;
   display: flex;

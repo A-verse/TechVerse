@@ -1,289 +1,202 @@
-# TechVerse
+<p align="center">
+  <img src="public/favicon.ico" alt="TechVerse Logo" width="90" />
+</p>
 
-> A full-stack virtual conference platform built with Next.js, React, TypeScript, and Supabase.
+<h1 align="center">TechVerse</h1>
 
-TechVerse provides a complete digital conference experience with attendee registration, personalized tickets, schedules, speaker profiles, sponsors, and career opportunities.
+<p align="center">
+  A virtual event platform for live stages, speakers, schedules, expo, and career opportunities.
+</p>
 
-## ✨ Features
+<p align="center">
+  <a href="https://github.com/YOUR_USERNAME/YOUR_REPOSITORY">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub Repository" />
+  </a>
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+</p>
 
-- Responsive conference landing page
-- Attendee registration
-- Secure HTTP-only sessions
-- Personalized digital tickets
-- Shareable ticket pages
-- Conference schedules and stages
-- Speaker profiles and session details
-- Sponsor showcase
-- Career/job listings
-- Production security headers
-- Server-side validation
-- Deployment-safe fallback data
-- Optional GitHub OAuth, DatoCMS, LiveKit, and hCaptcha integrations
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,git,github,vercel" alt="Tech Stack Icons" />
+</p>
 
-## 🛠️ Tech Stack
+---
 
-| Category              | Technology                             |
-| --------------------- | -------------------------------------- |
-| Framework             | Next.js 14                             |
-| Frontend              | React 18                               |
-| Language              | TypeScript                             |
-| Styling               | CSS Modules + Tailwind CSS             |
-| Database              | Supabase                               |
-| Authentication        | HTTP-only sessions                     |
-| Optional Integrations | DatoCMS, GitHub OAuth, LiveKit, hCaptcha |
-| Deployment            | Vercel                                 |
+## Overview
 
-## 📁 Project Structure
+TechVerse is a virtual event platform designed to bring event experiences together in one place. Users can explore event information, browse schedules and speakers, discover expo and career opportunities, and join live stages.
 
-```text
-TechVerse/
-├── components/          # Reusable React components
-├── lib/                 # Application logic, types and integrations
-├── pages/               # Pages and API routes
-├── public/              # Static assets
-├── media/               # Event media
-├── styles/              # Global styles
-├── .env.example         # Environment variables template
-├── next.config.js       # Next.js configuration
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+## Features
 
-## 🚀 Getting Started
+- **Event Hub:** Explore event sections and available content.
+- **Schedule:** Browse event sessions and timing.
+- **Speakers:** Discover event speakers.
+- **Expo:** Explore expo content and participating organizations.
+- **Jobs:** Browse career and job opportunities.
+- **Live Stages:** Access stage pages and join live sessions.
+- **LiveKit Integration:** Supports real-time audio/video experiences.
+- **Responsive UI:** Designed for desktop and mobile screens.
+
+## Screenshots
+
+<p align="center">
+  <img src="media/dashboard.png" width="48%" alt="Dashboard" />
+  <img src="media/stage.png" width="48%" alt="Live Stage" />
+</p>
+
+<p align="center">
+  <img src="media/join.png" width="48%" alt="Join Stage" />
+  <img src="media/preview.png" width="48%" alt="Preview" />
+</p>
+
+<p align="center">
+  <img src="media/ar-1.png" width="48%" alt="AR View 1" />
+  <img src="media/ar-2.png" width="48%" alt="AR View 2" />
+</p>
+
+<p align="center">
+  <img src="media/as-1.png" width="48%" alt="AS View 1" />
+  <img src="media/as-2.png" width="48%" alt="AS View 2" />
+</p>
+
+<p align="center">
+  <img src="media/cms.png" width="70%" alt="CMS" />
+</p>
+
+## Tech Stack
+
+| Technology   | Usage                         |
+| ------------ | ----------------------------- |
+| Next.js      | React framework and routing   |
+| React        | User interface                |
+| TypeScript   | Type-safe development         |
+| Tailwind CSS | Styling and responsive design |
+| Supabase     | Backend services and database |
+| PostgreSQL   | Relational database           |
+| LiveKit      | Real-time audio/video         |
+| Vercel       | Deployment                    |
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 20+
-- pnpm
-- Supabase project for persistent data
-
-Check your versions:
-
-```bash
-node --version
-pnpm --version
-```
+- Node.js
+- npm
+- Supabase project credentials
+- LiveKit credentials for live-stage functionality
 
 ### Installation
 
-Clone the repository:
+1. Clone the repository:
 
-```bash
-git clone <YOUR_REPOSITORY_URL>
-cd TechVerse
-```
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+   ```
 
-Install dependencies:
+2. Move into the project directory:
 
-```bash
-pnpm install
-```
+   ```bash
+   cd YOUR_REPOSITORY
+   ```
 
-Create your environment file:
+3. Install dependencies:
 
-**Windows PowerShell:**
+   ```bash
+   npm install
+   ```
 
-```powershell
-Copy-Item .env.example .env.local
-```
+4. Create your environment file:
 
-**macOS/Linux:**
+   ```bash
+   cp .env.example .env.local
+   ```
 
-```bash
-cp .env.example .env.local
-```
+   On Windows PowerShell:
 
-Start the development server:
+   ```powershell
+   Copy-Item .env.example .env.local
+   ```
 
-```bash
-pnpm dev
-```
+5. Add the required environment variables to `.env.local`.
 
-Open:
+6. Start the development server:
 
-```text
-http://localhost:3000
-```
+   ```bash
+   npm run dev
+   ```
 
-## 🔐 Environment Variables
+7. Open [http://localhost:3000](http://localhost:3000).
 
-Create `.env.local` in the project root.
+## Environment Variables
 
-### Supabase
-
-```env
-SUPABASE_URL=
-SUPABASE_SERVICE_ROLE_SECRET=
-EMAIL_TO_ID_SECRET=
-```
-
-The Supabase service-role secret is **server-only** and must never use a `NEXT_PUBLIC_*` variable.
-
-Database schema:
-
-```text
-lib/db-providers/supabase/schema.sql
-```
-
-### Site Configuration
+Configure the variables required by your project in `.env.local`.
 
 ```env
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_SITE_ORIGIN=http://localhost:3000
-NEXT_PUBLIC_REPO_URL=
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+# LiveKit
+LIVEKIT_URL=
+LIVEKIT_API_KEY=
+LIVEKIT_API_SECRET=
 ```
 
-For production, replace the localhost URLs with your deployed domain.
+Use `.env.example` as the source of truth for the complete variable list. Never commit `.env.local` or expose private server-side credentials.
 
-### LiveKit live stages
+## Available Scripts
 
-TechVerse uses LiveKit for real-time live stages. Create a LiveKit Cloud project without adding 100ms credentials, then configure:
-
-```env
-NEXT_PUBLIC_LIVEKIT_URL=wss://your-project.livekit.cloud
-LIVEKIT_URL=wss://your-project.livekit.cloud
-LIVEKIT_API_KEY=your-api-key
-LIVEKIT_API_SECRET=your-api-secret
-NEXT_PUBLIC_LIVEKIT_ROOM_A=techverse-stage-a
-NEXT_PUBLIC_LIVEKIT_ROOM_C=techverse-stage-c
-NEXT_PUBLIC_LIVEKIT_ROOM_M=techverse-stage-m
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
 ```
 
-The browser never receives the LiveKit API secret. The Next.js API route `/api/livekit-token` creates short-lived participant tokens on the server. Viewer tokens are subscribe-only; speaker tokens can publish audio/video.
+Run only the scripts defined in your project's `package.json`.
 
-### Optional Integrations
-
-```env
-DATOCMS_READ_ONLY_API_TOKEN=
-
-NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID=
-GITHUB_OAUTH_CLIENT_SECRET=
-
-NEXT_PUBLIC_HCAPTCHA_SITE_KEY=
-HCAPTCHA_SECRET_KEY=
-```
-
-DatoCMS, GitHub OAuth, and hCaptcha are optional. Supabase is required for production persistence.
-
-## 🗄️ Database
-
-Supabase is used as the persistent backend.
-
-Apply the schema from:
+## Project Structure
 
 ```text
-lib/db-providers/supabase/schema.sql
+.
+├── public/
+│   └── favicon.ico
+├── media/
+│   ├── dashboard.png
+│   ├── stage.png
+│   ├── join.png
+│   ├── preview.png
+│   ├── ar-1.png
+│   ├── ar-2.png
+│   ├── as-1.png
+│   ├── as-2.png
+│   └── cms.png
+├── src/
+├── .env.example
+├── package.json
+└── README.md
 ```
 
-to your Supabase project before using production persistence.
+_Update the structure above if your actual folders differ._
 
-## 🧪 Scripts
+## Security Notes
 
-Start development:
+- Keep private API keys and secrets on the server.
+- Do not commit environment files containing credentials.
+- Protect authenticated and role-restricted routes on the server.
+- Validate access before issuing LiveKit room tokens.
 
-```bash
-pnpm dev
-```
+## Deployment
 
-Run production build:
+The application can be deployed to Vercel or another compatible hosting provider.
 
-```bash
-pnpm build
-```
+Before deployment:
 
-Start production server:
+1. Configure the required environment variables.
+2. Verify authentication and access-control settings.
+3. Test the production build.
+4. Confirm live-stage functionality with valid LiveKit credentials.
 
-```bash
-pnpm start
-```
+## License
 
-Run TypeScript checks:
-
-```bash
-pnpm typecheck
-```
-
-## 🚢 Deployment
-
-TechVerse can be deployed to Vercel or another Node.js-compatible hosting provider.
-
-For Vercel:
-
-1. Push the repository to GitHub.
-2. Import the repository into Vercel.
-3. Add the required environment variables.
-4. Deploy.
-
-Recommended commands:
-
-```text
-Install Command: pnpm install
-Build Command: pnpm build
-Start Command: pnpm start
-```
-
-For production:
-
-```env
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-NEXT_PUBLIC_SITE_ORIGIN=https://your-domain.com
-```
-
-Never commit:
-
-```text
-.env.local
-node_modules/
-.next/
-```
-
-## 📱 Responsive Design
-
-TechVerse is designed for:
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile
-
-The interface includes responsive layouts for navigation, schedules, speaker cards, sponsor sections, and ticket pages.
-
-## 🔒 Security
-
-- HTTP-only session cookies
-- Server-side secret handling
-- Environment-based configuration
-- Production security headers
-- TypeScript strict mode
-- Server-side API validation
-- No client-side exposure of server credentials
-- Graceful handling of unavailable optional services
-
-## 🎯 Project Highlights
-
-TechVerse demonstrates:
-
-- Full-stack Next.js development
-- React and TypeScript
-- Supabase integration
-- Authentication and session handling
-- API development
-- Responsive UI design
-- Server-side validation
-- External service integrations
-- Production deployment
-
-## 🔮 Future Improvements
-
-- QR-based ticket check-in
-- Real-time attendee interactions
-- Event notifications
-- Speaker dashboard
-- Sponsor management
-- Admin analytics
-- Live-stage moderation
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
+Add a license file if you intend to distribute this project under an open-source license.

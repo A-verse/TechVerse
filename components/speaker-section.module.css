@@ -55,6 +55,8 @@
 }
 
 .image {
+  width: 100%;
+  height: auto;
   border-radius: var(--space-2x);
 }
 

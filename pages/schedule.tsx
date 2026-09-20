@@ -38,7 +38,7 @@ export default function SchedulePage({ allStages }: Props) {
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Schedule" description={meta.description} />
+        <Header hero="Schedule" description="Sessions across every stage, in order." />
         <Schedule allStages={allStages} />
       </Layout>
     </Page>

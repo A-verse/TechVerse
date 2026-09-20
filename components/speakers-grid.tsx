@@ -27,13 +27,7 @@ export default function SpeakersGrid({ speakers }: Props) {
   return (
     <div className={styles.grid}>
       {speakers?.map(speaker => (
-        <Link
-          key={speaker.name}
-          href={`/speakers/${speaker.slug}`}
-          role="button"
-          tabIndex={0}
-          className={styles.card}
-        >
+        <Link key={speaker.name} href={`/speakers/${speaker.slug}`} className={styles.card}>
           <div className={styles.imageWrapper}>
             <Image
               alt={speaker.name}

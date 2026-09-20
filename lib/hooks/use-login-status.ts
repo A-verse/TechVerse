@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import useSWR, {  SWRConfiguration } from 'swr';
+import useSWR, { SWRConfiguration } from 'swr';
 
 export default function useLoginStatus(opts?: SWRConfiguration) {
   const { data, error, mutate } = useSWR(
@@ -36,8 +36,9 @@ export default function useLoginStatus(opts?: SWRConfiguration) {
     loginStatus: error
       ? ('loggedOut' as const)
       : !data
-      ? ('loading' as const)
-      : ('loggedIn' as const),
+        ? ('loading' as const)
+        : ('loggedIn' as const),
+    username: data?.username as string | undefined,
     mutate
   };
 }

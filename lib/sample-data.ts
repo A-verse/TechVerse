@@ -8,6 +8,8 @@ const avatar = (name: string) => {
   return `/avatars/${slug}.png`;
 };
 
+const DEFAULT_DISCORD = process.env.NEXT_PUBLIC_DISCORD_URL || '';
+
 const speakers: Speaker[] = [
   {
     name: 'Aarav Mehta',
@@ -15,7 +17,7 @@ const speakers: Speaker[] = [
     title: 'Staff Software Engineer',
     slug: 'aarav-mehta',
     twitter: '',
-    github: 'https://github.com/',
+    github: '',
     company: 'TechVerse',
     talk: {
       title: 'Building for the next billion interactions',
@@ -33,7 +35,7 @@ const speakers: Speaker[] = [
     title: 'Frontend Engineer',
     slug: 'maya-shah',
     twitter: '',
-    github: 'https://github.com/',
+    github: '',
     company: 'TechVerse',
     talk: {
       title: 'Interfaces that feel inevitable',
@@ -51,7 +53,7 @@ const speakers: Speaker[] = [
     title: 'Platform Engineer',
     slug: 'kabir-rao',
     twitter: '',
-    github: 'https://github.com/',
+    github: '',
     company: 'TechVerse',
     talk: {
       title: 'Observability without the noise',
@@ -69,7 +71,7 @@ const speakers: Speaker[] = [
     title: 'Security Engineer',
     slug: 'riya-kapoor',
     twitter: '',
-    github: 'https://github.com/',
+    github: '',
     company: 'TechVerse',
     talk: {
       title: 'Security as a product feature',
@@ -119,7 +121,7 @@ const stages: Stage[] = [
     name: 'Main Stage',
     slug: 'a',
     stream: '',
-    discord: '',
+    discord: process.env.NEXT_PUBLIC_LIVE_STAGE_DISCORD_A || DEFAULT_DISCORD,
     schedule: talks,
     isLive: Boolean(process.env.NEXT_PUBLIC_LIVEKIT_ROOM_A),
     roomId: process.env.NEXT_PUBLIC_LIVEKIT_ROOM_A || '',
@@ -130,7 +132,7 @@ const stages: Stage[] = [
     name: 'Engineering Stage',
     slug: 'c',
     stream: '',
-    discord: '',
+    discord: process.env.NEXT_PUBLIC_LIVE_STAGE_DISCORD_C || DEFAULT_DISCORD,
     schedule: talks.slice(1),
     isLive: Boolean(process.env.NEXT_PUBLIC_LIVEKIT_ROOM_C),
     roomId: process.env.NEXT_PUBLIC_LIVEKIT_ROOM_C || '',
@@ -141,7 +143,7 @@ const stages: Stage[] = [
     name: 'Community Stage',
     slug: 'm',
     stream: '',
-    discord: '',
+    discord: process.env.NEXT_PUBLIC_LIVE_STAGE_DISCORD_M || DEFAULT_DISCORD,
     schedule: talks.slice(2),
     isLive: Boolean(process.env.NEXT_PUBLIC_LIVEKIT_ROOM_M),
     roomId: process.env.NEXT_PUBLIC_LIVEKIT_ROOM_M || '',
@@ -155,11 +157,11 @@ const sponsors: Sponsor[] = [
     name: 'Vertex Labs',
     description: 'Developer tooling and cloud infrastructure.',
     slug: 'vertex-labs',
-    website: '',
+    website: process.env.NEXT_PUBLIC_VERTEX_LABS_URL || '',
     callToAction: 'Visit booth',
-    callToActionLink: '',
+    callToActionLink: process.env.NEXT_PUBLIC_VERTEX_LABS_URL || '',
     links: [],
-    discord: '',
+    discord: process.env.NEXT_PUBLIC_VERTEX_LABS_DISCORD || DEFAULT_DISCORD,
     tier: 'Platinum',
     cardImage: { url: avatar('Vertex Labs') },
     logo: { url: avatar('Vertex Labs') },
@@ -169,11 +171,11 @@ const sponsors: Sponsor[] = [
     name: 'Nova Systems',
     description: 'Infrastructure for ambitious engineering teams.',
     slug: 'nova-systems',
-    website: '',
+    website: process.env.NEXT_PUBLIC_NOVA_SYSTEMS_URL || '',
     callToAction: 'Learn more',
-    callToActionLink: '',
+    callToActionLink: process.env.NEXT_PUBLIC_NOVA_SYSTEMS_URL || '',
     links: [],
-    discord: '',
+    discord: process.env.NEXT_PUBLIC_NOVA_SYSTEMS_DISCORD || DEFAULT_DISCORD,
     tier: 'Gold',
     cardImage: { url: avatar('Nova Systems') },
     logo: { url: avatar('Nova Systems') },
@@ -187,8 +189,8 @@ const jobs: Job[] = [
     companyName: 'TechVerse',
     title: 'Frontend Engineer',
     description: 'Build accessible, performant web experiences.',
-    discord: '',
-    link: '',
+    discord: process.env.NEXT_PUBLIC_TECHVERSE_JOBS_DISCORD || DEFAULT_DISCORD,
+    link: process.env.NEXT_PUBLIC_TECHVERSE_JOBS_URL || '',
     rank: 1
   },
   {
@@ -196,8 +198,8 @@ const jobs: Job[] = [
     companyName: 'Vertex Labs',
     title: 'Full-Stack Engineer',
     description: 'Own product features across frontend and backend.',
-    discord: '',
-    link: '',
+    discord: process.env.NEXT_PUBLIC_VERTEX_LABS_JOBS_DISCORD || DEFAULT_DISCORD,
+    link: process.env.NEXT_PUBLIC_VERTEX_LABS_JOBS_URL || '',
     rank: 2
   },
   {
@@ -205,8 +207,8 @@ const jobs: Job[] = [
     companyName: 'Nova Systems',
     title: 'Platform Engineer',
     description: 'Build reliable developer infrastructure.',
-    discord: '',
-    link: '',
+    discord: process.env.NEXT_PUBLIC_NOVA_SYSTEMS_JOBS_DISCORD || DEFAULT_DISCORD,
+    link: process.env.NEXT_PUBLIC_NOVA_SYSTEMS_JOBS_URL || '',
     rank: 3
   }
 ];

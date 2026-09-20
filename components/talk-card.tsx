@@ -38,9 +38,16 @@ export default function TalkCard({ talk: { title, speaker, start, end }, showTim
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
   useEffect(() => {
-    const now = Date.now();
-    setIsTalkLive(isAfter(now, parseISO(start)) && isBefore(now, parseISO(end)));
+    const update = () => {
+      const now = Date.now();
+      setIsTalkLive(isAfter(now, parseISO(start)) && isBefore(now, parseISO(end)));
+    };
+
+    update();
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
+
+    const interval = setInterval(update, 30000);
+    return () => clearInterval(interval);
   }, [end, start]);
 
   const firstSpeakerLink = speaker[0] ? `/speakers/${speaker[0].slug}` : '/speakers';

@@ -28,15 +28,11 @@ export default async function getStages(_: NextApiRequest, res: NextApiResponse)
     // Set caching headers
     const expires = new Date(Date.now() + ms(`${EXPIRES_SECONDS}s`));
     res.setHeader('Expires', expires.toUTCString());
-    res.setHeader(
-      'Cache-Control',
-      `s-maxage=${EXPIRES_SECONDS}, stale-while-revalidate`
-    );
+    res.setHeader('Cache-Control', `s-maxage=${EXPIRES_SECONDS}, stale-while-revalidate`);
 
     return res.status(200).json(allStages);
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e);
+    console.error('Failed to load stages:', e);
 
     return res.status(500).json({
       error: {

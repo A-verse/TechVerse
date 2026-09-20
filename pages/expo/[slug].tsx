@@ -30,8 +30,8 @@ type Props = {
 
 export default function SponsorPage({ sponsor }: Props) {
   const meta = {
-    title: 'TechVerse',
-    description: META_DESCRIPTION
+    title: `${sponsor.name} - TechVerse Expo`,
+    description: sponsor.description || META_DESCRIPTION
   };
 
   return (

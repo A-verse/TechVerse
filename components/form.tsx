@@ -63,7 +63,12 @@ export default function Form({ sharePage }: Props) {
             username: data.username
           };
 
-          if (sharePage) {
+          const returnTo = typeof router.query.returnTo === 'string' ? router.query.returnTo : '';
+          const safeReturnTo = returnTo.startsWith('/') && !returnTo.startsWith('//') ? returnTo : '';
+
+          if (safeReturnTo) {
+            await router.replace(safeReturnTo);
+          } else if (sharePage) {
             const queryString = Object.keys(params)
               .map(
                 key =>
@@ -176,7 +181,7 @@ export default function Form({ sharePage }: Props) {
             onChange={e => setEmail(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            placeholder="Enter email to register free"
+            placeholder={router.query.returnTo ? 'Enter your registered email' : 'Enter email to register free'}
             aria-label="Your email address"
             required
           />
@@ -186,7 +191,7 @@ export default function Form({ sharePage }: Props) {
           className={cn(styles.submit, styles.register, styles[formState])}
           disabled={formState === 'loading'}
         >
-          {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
+          {formState === 'loading' ? <LoadingDots size={4} /> : <>{router.query.returnTo ? 'Login / Register' : 'Register'}</>}
         </button>
       </div>
       <Captcha ref={captchaRef} onVerify={handleRegister} />

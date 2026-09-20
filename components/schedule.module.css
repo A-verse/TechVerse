@@ -60,6 +60,11 @@
   margin-right: 24px;
 }
 
+.noSessions {
+  color: var(--secondary-color);
+  margin: var(--space-2x) 0 0;
+}
+
 @media (min-width: 500px) {
   .container {
     border-top: 1px solid var(--accents-7);

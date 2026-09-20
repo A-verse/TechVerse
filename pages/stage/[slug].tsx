@@ -3,26 +3,20 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import Page from '@components/page';
 import StageContainer from '@components/stage-container';
 import Layout from '@components/layout';
 
 import { getAllStages } from '@lib/cms-api';
+import { getTicketNumberByUserId } from '@lib/db-api';
 import { Stage } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { COOKIE, META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
   stage: Stage;
@@ -34,6 +28,7 @@ export default function StagePage({ stage, allStages }: Props) {
     title: 'TechVerse',
     description: META_DESCRIPTION
   };
+
   return (
     <Page meta={meta} fullViewport>
       <Layout isLive={stage.isLive}>
@@ -43,10 +38,61 @@ export default function StagePage({ stage, allStages }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const slug = params?.slug;
+/**
+ * Server-side authentication guard.
+ *
+ * A user must have a valid TechVerse session before
+ * the stage page itself can be opened.
+ */
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context: GetServerSidePropsContext
+) => {
+  const sessionId = context.req.cookies[COOKIE];
+
+  /*
+   * No login/session cookie.
+   * Do not allow direct access to the stage.
+   */
+  if (!sessionId) {
+    return {
+      redirect: {
+        destination: `/?login=1&returnTo=${encodeURIComponent(`/stage/${String(context.params?.slug || '')}`)}`,
+        permanent: false
+      }
+    };
+  }
+
+  /*
+   * Verify that the session belongs to an actual
+   * registered TechVerse user.
+   */
+  try {
+    const ticketNumber = await getTicketNumberByUserId(sessionId);
+
+    if (!ticketNumber) {
+      return {
+        redirect: {
+          destination: `/?login=1&returnTo=${encodeURIComponent(`/stage/${String(context.params?.slug || '')}`)}`,
+          permanent: false
+        }
+      };
+    }
+  } catch (error) {
+    console.error('Stage authentication check failed:', error);
+
+    return {
+      redirect: {
+        destination: `/?login=1&returnTo=${encodeURIComponent(`/stage/${String(context.params?.slug || '')}`)}`,
+        permanent: false
+      }
+    };
+  }
+
+  const slug = context.params?.slug;
+
   const stages = await getAllStages();
-  const stage = stages?.find((s: Stage) => s.slug === slug) || null;
+
+  const stage = stages?.find((item: Stage) => item.slug === slug) || null;
 
   if (!stage) {
     return {
@@ -58,18 +104,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     props: {
       stage,
       allStages: stages
-    },
-    revalidate: 60
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const stages = await getAllStages();
-  const slugs = stages?.map((s: Stage) => ({ params: { slug: s.slug } })) || [];
-
-  console.log({ slugs });
-  return {
-    paths: slugs,
-    fallback: false
+    }
   };
 };

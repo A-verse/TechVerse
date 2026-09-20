@@ -38,7 +38,7 @@ export default function Jobs({ jobs }: Props) {
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Career Fair" description={meta.description} />
+        <Header hero="Career Fair" description="Open roles from teams exhibiting at TechVerse." />
         <JobsGrid jobs={jobs} />
       </Layout>
     </Page>

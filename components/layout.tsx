@@ -24,7 +24,7 @@ import { NAVIGATION } from '@lib/constants';
 import styles from './layout.module.css';
 
 import Logo from './icons/icon-logo';
-import MobileMenu from './mobile-menu';
+import MobileBottomNav from './mobile-bottom-nav';
 import Footer from './footer';
 import ViewSource from './view-source';
 
@@ -46,7 +46,8 @@ export default function Layout({
   const router = useRouter();
   const activeRoute = router.asPath;
 
-  const disableCta = ['/schedule', '/speakers', '/expo', '/jobs'];
+  const disableCta = ['/schedule', '/speakers', '/expo', '/jobs', '/stage'];
+  const isStageRoute = activeRoute.startsWith('/stage/');
 
   return (
     <>
@@ -54,8 +55,6 @@ export default function Layout({
         {!hideNav && (
           <header className={cn(styles.header)}>
             <div className={styles['header-logos']}>
-              <MobileMenu key={router.asPath} />
-
               <Link href="/" className={styles.logo}>
                 {/* eslint-disable-next-line */}
                 <Logo />
@@ -64,7 +63,7 @@ export default function Layout({
 
             <div className={styles.tabs}>
               {NAVIGATION.map(({ name, route }) => (
-                <a
+                <Link
                   key={name}
                   href={route}
                   className={cn(styles.tab, {
@@ -72,13 +71,15 @@ export default function Layout({
                   })}
                 >
                   {name}
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className={cn(styles['header-right'])}>
-              {isLive && !disableCta.includes(activeRoute) ? (
-                <a href={activeRoute} className={styles.tab}>Live Stage</a>
+              {isLive && !disableCta.some(route => activeRoute.startsWith(route)) ? (
+                <Link href={activeRoute} className={styles.tab}>
+                  Live Stage
+                </Link>
               ) : null}
             </div>
           </header>
@@ -86,14 +87,20 @@ export default function Layout({
 
         <ViewSource />
 
-        <div className={styles.page}>
+        <div
+          className={cn(styles.page, {
+            [styles['page-with-bottom-nav']]: !hideNav && !isStageRoute
+          })}
+        >
           <main className={styles.main} style={layoutStyles} id="main-content">
             <div className={cn(styles.full, className)}>{children}</div>
           </main>
 
-          {!activeRoute.startsWith('/stage') && <Footer />}
+          {!isStageRoute && <Footer />}
         </div>
       </div>
+
+      {!hideNav && !isStageRoute && <MobileBottomNav />}
     </>
   );
 }

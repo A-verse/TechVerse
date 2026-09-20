@@ -19,25 +19,19 @@ import Image from 'next/image';
 import cn from 'classnames';
 import { Sponsor } from '@lib/types';
 import styles from './sponsors-grid.module.css';
+import styleUtils from './utils.module.css';
 
 function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
+  const tier = sponsor.tier?.toLowerCase();
+
   return (
-    <Link
-      key={sponsor.name}
-      href={`/expo/${sponsor.slug}`}
-      role="button"
-      tabIndex={0}
-      className={cn(styles.card, {
-        [styles.diamond]: sponsor.tier === 'diamond',
-        [styles.gold]: sponsor.tier === 'gold'
-      })}
-    >
+    <Link key={sponsor.name} href={`/expo/${sponsor.slug}`} className={styles.card}>
       <div className={styles.imageWrapper}>
         <Image
           alt={sponsor.name}
           src={sponsor.cardImage.url}
           className={cn(styles.image, {
-            [styles.silver]: sponsor.tier === 'silver'
+            [styles.silver]: tier === 'silver'
           })}
           loading="lazy"
           title={sponsor.name}
@@ -45,7 +39,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
           height={500}
         />
       </div>
-      {sponsor.tier !== 'silver' && (
+      {tier !== 'silver' && (
         <div className={styles.cardBody}>
           <div>
             <h2 className={styles.name}>{sponsor.name}</h2>
@@ -62,8 +56,16 @@ type Props = {
 };
 
 export default function SponsorsGrid({ sponsors }: Props) {
-  const silverSponsors = sponsors.filter(s => s.tier === 'silver');
-  const otherSponsors = sponsors.filter(s => s.tier !== 'silver');
+  const silverSponsors = sponsors.filter(s => s.tier?.toLowerCase() === 'silver');
+  const otherSponsors = sponsors.filter(s => s.tier?.toLowerCase() !== 'silver');
+
+  if (sponsors.length === 0) {
+    return (
+      <div className={styleUtils.emptyState}>
+        <p>No exhibitors listed yet. Check back soon.</p>
+      </div>
+    );
+  }
 
   return (
     <>

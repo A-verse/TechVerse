@@ -57,7 +57,7 @@ export async function getUserById(id: string): Promise<ConfUser> {
   if (!supabase) return {};
   const { data, error } = await supabase
     .from('users')
-    .select('name, username, createdAt')
+    .select('email, name, username, createdAt')
     .eq('id', id)
     .single();
   if (error) throw new Error(error.message);

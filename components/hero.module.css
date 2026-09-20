@@ -61,9 +61,28 @@
 
 @media (min-width: 768px) {
   .hero {
+    font-size: 64px;
+    line-height: 1.05;
+    font-weight: 800;
+    margin: 0 0px 32px;
+  }
+
+  .info {
+    font-size: 22px;
+    margin-bottom: 56px;
+  }
+
+  .description {
+    font-size: var(--space-8x);
+    max-width: 531px;
+    margin: 32px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
     font-size: 100px;
     line-height: 1;
-    font-weight: 800;
     margin: 0 0px 40px;
   }
 
@@ -73,8 +92,6 @@
   }
 
   .description {
-    font-size: var(--space-8x);
-    max-width: 531px;
     margin: 40px auto;
   }
 }

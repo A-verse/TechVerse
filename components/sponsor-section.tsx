@@ -57,7 +57,10 @@ export default function SponsorSection({ sponsor }: Props) {
             width="100%"
           />
         ) : (
-          <div className={cn(styles.video, styleUtils['appear'], styleUtils['appear-first'])} aria-label="Sponsor video unavailable">
+          <div
+            className={cn(styles.video, styleUtils['appear'], styleUtils['appear-first'])}
+            aria-label="Sponsor video unavailable"
+          >
             <p>Video coming soon</p>
           </div>
         )}
@@ -97,35 +100,37 @@ export default function SponsorSection({ sponsor }: Props) {
               </a>
             )}
           </div>
-          <div className={styles.resources}>
-            <h2 className={styles.heading}>Resources</h2>
-            {sponsor.links.map(link => (
-              <a
-                key={link.url}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(styles.button, styles['button-resource'])}
-              >
-                <span className={styles.truncate}>{link.text}</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  shapeRendering="geometricPrecision"
+          {sponsor.links.length > 0 && (
+            <div className={styles.resources}>
+              <h2 className={styles.heading}>Resources</h2>
+              {sponsor.links.map(link => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(styles.button, styles['button-resource'])}
                 >
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                  <path d="M15 3h6v6" />
-                  <path d="M10 14L21 3" />
-                </svg>
-              </a>
-            ))}
-          </div>
+                  <span className={styles.truncate}>{link.text}</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                    shapeRendering="geometricPrecision"
+                  >
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <path d="M15 3h6v6" />
+                    <path d="M10 14L21 3" />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>
