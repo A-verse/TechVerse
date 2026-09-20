@@ -1,4 +1,4 @@
-<p align="center">
+ <p align="center">
   <img src="public/favicon.ico" alt="TechVerse Logo" width="90" />
 </p>
 
@@ -22,6 +22,10 @@
 
 ---
 
+<table>
+<tr>
+<td width="50%" valign="top">
+
 ## Overview
 
 TechVerse is a virtual event platform designed to bring event experiences together in one place. Users can explore event information, browse schedules and speakers, discover expo and career opportunities, and join live stages.
@@ -36,6 +40,22 @@ TechVerse is a virtual event platform designed to bring event experiences togeth
 - **Live Stages:** Access stage pages and join live sessions.
 - **LiveKit Integration:** Supports real-time audio/video experiences.
 - **Responsive UI:** Designed for desktop and mobile screens.
+
+## Tech Stack
+
+| Technology   | Usage                         |
+| ------------ | ----------------------------- |
+| Next.js      | React framework and routing   |
+| React        | User interface                |
+| TypeScript   | Type-safe development         |
+| Tailwind CSS | Styling and responsive design |
+| Supabase     | Backend services and database |
+| PostgreSQL   | Relational database           |
+| LiveKit      | Real-time audio/video         |
+| Vercel       | Deployment                    |
+
+</td>
+<td width="50%" valign="top">
 
 ## Screenshots
 
@@ -60,21 +80,14 @@ TechVerse is a virtual event platform designed to bring event experiences togeth
 </p>
 
 <p align="center">
-  <img src="media/cms.png" width="70%" alt="CMS" />
+  <img src="media/cms.png" width="90%" alt="CMS" />
 </p>
 
-## Tech Stack
+</td>
+</tr>
+</table>
 
-| Technology   | Usage                         |
-| ------------ | ----------------------------- |
-| Next.js      | React framework and routing   |
-| React        | User interface                |
-| TypeScript   | Type-safe development         |
-| Tailwind CSS | Styling and responsive design |
-| Supabase     | Backend services and database |
-| PostgreSQL   | Relational database           |
-| LiveKit      | Real-time audio/video         |
-| Vercel       | Deployment                    |
+---
 
 ## Getting Started
 
@@ -125,7 +138,7 @@ TechVerse is a virtual event platform designed to bring event experiences togeth
    npm run dev
    ```
 
-7. Open [http://localhost:3000](http://localhost:3000).
+7. Open http://localhost:3000.
 
 ## Environment Variables
 
