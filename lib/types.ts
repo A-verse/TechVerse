@@ -95,6 +95,15 @@ export type ConfUser = {
   createdAt?: number | null;
 };
 
+export type SearchResultType = 'session' | 'speaker' | 'company' | 'job';
+
+export type SearchResult = {
+  type: SearchResultType;
+  title: string;
+  subtitle: string;
+  url: string;
+};
+
 export type GitHubOAuthData =
   | {
       type: 'token';

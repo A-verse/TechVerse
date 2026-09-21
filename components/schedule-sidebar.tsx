@@ -56,7 +56,9 @@ export default function ScheduleSidebar({ allStages }: Props) {
       </Select>
       <div className={styles.talks}>
         {currentStage?.schedule.length ? (
-          currentStage.schedule.map(talk => <TalkCard key={talk.title} talk={talk} showTime />)
+          currentStage.schedule.map(talk => (
+            <TalkCard key={talk.title} talk={talk} showTime stageSlug={currentStage.slug} />
+          ))
         ) : (
           <p className={styles.noSessions}>No sessions scheduled for this stage yet.</p>
         )}

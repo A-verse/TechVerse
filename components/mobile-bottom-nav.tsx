@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import cn from 'classnames';
@@ -7,6 +7,8 @@ import { useOverlay, usePreventScroll, useModal, OverlayContainer } from '@react
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
 import useLoginStatus from '@lib/hooks/use-login-status';
+import useUpcomingNotifications from '@lib/hooks/use-upcoming-notifications';
+import { Stage } from '@lib/types';
 import styles from './mobile-bottom-nav.module.css';
 
 const MORE_LINKS = [
@@ -15,7 +17,10 @@ const MORE_LINKS = [
   { name: 'Jobs', route: '/jobs' }
 ];
 
-function MoreOverlay(props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) {
+function MoreOverlay(
+  props: Parameters<typeof useOverlay>[0] &
+    Parameters<typeof useDialog>[0] & { onOpenSearch: () => void }
+) {
   const router = useRouter();
   const activeRoute = router.asPath;
 
@@ -36,6 +41,29 @@ function MoreOverlay(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
           {...modalProps}
           ref={ref}
         >
+          <button
+            type="button"
+            className={styles.overlaySearchButton}
+            onClick={() => {
+              (props.onClose as () => void)();
+              props.onOpenSearch();
+            }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            Search
+          </button>
           {MORE_LINKS.map(({ name, route }) => (
             <Link
               key={name}
@@ -54,20 +82,42 @@ function MoreOverlay(props: Parameters<typeof useOverlay>[0] & Parameters<typeof
   );
 }
 
-export default function MobileBottomNav() {
+type MobileBottomNavProps = {
+  onOpenSearch: () => void;
+};
+
+export default function MobileBottomNav({ onOpenSearch }: MobileBottomNavProps) {
   const router = useRouter();
   const activeRoute = router.asPath;
-  const { loginStatus, username } = useLoginStatus();
+  const { loginStatus } = useLoginStatus();
 
   const overlayState = useOverlayTriggerState({});
+  const [allStages, setAllStages] = useState<Stage[]>([]);
+
+  useEffect(() => {
+    if (loginStatus !== 'loggedIn') return;
+
+    let cancelled = false;
+
+    fetch('/api/stages')
+      .then(res => (res.ok ? res.json() : []))
+      .then((stages: Stage[]) => {
+        if (!cancelled) setAllStages(Array.isArray(stages) ? stages : []);
+      })
+      .catch(() => {
+        /* Badge is a nice-to-have — silently skip it if this fails. */
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [loginStatus]);
+
+  const notifications = useUpcomingNotifications(allStages);
 
   const lastItem =
     loginStatus === 'loggedIn'
-      ? {
-          name: 'Me',
-          route: username ? `/tickets/${username}` : '/',
-          icon: 'user' as const
-        }
+      ? { name: 'Me', route: '/me', icon: 'user' as const }
       : { name: 'Sign in', route: '/', icon: 'user' as const };
 
   const items: { name: string; route: string; icon: 'home' | 'schedule' | 'live' | 'user' }[] = [
@@ -119,14 +169,22 @@ export default function MobileBottomNav() {
           href={lastItem.route}
           className={cn(styles.item, { [styles.itemActive]: isActive(lastItem.route) })}
         >
-          <NavIcon name={lastItem.icon} />
-          <span>{lastItem.name}</span>
+          <span className={styles.iconWrapper}>
+            <NavIcon name={lastItem.icon} />
+            {notifications.length > 0 && <span className={styles.badge} aria-hidden="true" />}
+          </span>
+          <span>
+            {lastItem.name}
+            {notifications.length > 0 && (
+              <span className={styles.srOnly}> ({notifications.length} session starting soon)</span>
+            )}
+          </span>
         </Link>
       </nav>
 
       {overlayState.isOpen && (
         <OverlayContainer>
-          <MoreOverlay isOpen onClose={() => overlayState.close()} />
+          <MoreOverlay isOpen onClose={() => overlayState.close()} onOpenSearch={onOpenSearch} />
         </OverlayContainer>
       )}
     </>

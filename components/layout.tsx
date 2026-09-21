@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
@@ -25,6 +25,7 @@ import styles from './layout.module.css';
 
 import Logo from './icons/icon-logo';
 import MobileBottomNav from './mobile-bottom-nav';
+import CommandPalette from './command-palette';
 import Footer from './footer';
 import ViewSource from './view-source';
 
@@ -48,6 +49,26 @@ export default function Layout({
 
   const disableCta = ['/schedule', '/speakers', '/expo', '/jobs', '/stage'];
   const isStageRoute = activeRoute.startsWith('/stage/');
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  /*
+   * Cmd/Ctrl+K opens global search. Disabled on the immersive stage room,
+   * where the LiveKit room may want its own keyboard shortcuts and a
+   * full-screen search modal would be disruptive mid-session.
+   */
+  useEffect(() => {
+    if (isStageRoute) return;
+
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [isStageRoute]);
 
   return (
     <>
@@ -76,6 +97,28 @@ export default function Layout({
             </div>
 
             <div className={cn(styles['header-right'])}>
+              <button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                className={styles.searchTrigger}
+                aria-label="Search TechVerse"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <span className={styles.searchTriggerLabel}>Search</span>
+                <span className={styles.searchTriggerKey}>⌘K</span>
+              </button>
               {isLive && !disableCta.some(route => activeRoute.startsWith(route)) ? (
                 <Link href={activeRoute} className={styles.tab}>
                   Live Stage
@@ -100,7 +143,9 @@ export default function Layout({
         </div>
       </div>
 
-      {!hideNav && !isStageRoute && <MobileBottomNav />}
+      {!hideNav && !isStageRoute && <MobileBottomNav onOpenSearch={() => setSearchOpen(true)} />}
+
+      <CommandPalette isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }

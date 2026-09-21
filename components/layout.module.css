@@ -68,10 +68,55 @@
   margin: var(--space-2x) var(--space-4x);
   margin-right: 5rem;
   display: none;
+  align-items: center;
+  gap: var(--space-4x);
 }
 
 @media screen and (min-width: 770px) {
   .header-right {
+    display: flex;
+  }
+}
+
+.searchTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2x);
+  height: 36px;
+  padding: 0 var(--space-3x);
+  border-radius: var(--space-2x);
+  border: 1px solid var(--accents-7);
+  background: none;
+  color: var(--secondary-color);
+  cursor: pointer;
+  min-width: 44px;
+}
+
+.searchTrigger:hover,
+.searchTrigger:focus-visible {
+  color: #fff;
+  border-color: #fff;
+}
+
+.searchTriggerLabel {
+  font-size: 13px;
+  display: none;
+}
+
+@media screen and (min-width: 1032px) {
+  .searchTriggerLabel {
+    display: initial;
+  }
+}
+
+.searchTriggerKey {
+  font-size: 11px;
+  color: var(--accents-4);
+  display: none;
+}
+
+@media screen and (min-width: 1032px) {
+  .searchTriggerKey {
     display: initial;
   }
 }

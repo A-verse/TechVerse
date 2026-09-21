@@ -41,7 +41,7 @@ function StageRow({ stage }: { stage: Stage }) {
           {startTimes.map((startTime: string) => (
             <div key={startTime}>
               {timeBlocks[startTime].map((talk: Talk, index: number) => (
-                <TalkCard key={talk.title} talk={talk} showTime={index === 0} />
+                <TalkCard key={talk.title} talk={talk} showTime={index === 0} stageSlug={stage.slug} />
               ))}
             </div>
           ))}

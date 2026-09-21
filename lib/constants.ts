@@ -6,7 +6,8 @@ export const SITE_NAME_MULTILINE = ['TECH', 'VERSE'];
 export const SITE_NAME = 'TechVerse';
 export const META_DESCRIPTION =
   'TechVerse is a modern virtual conference experience for talks, live stages, speakers, networking, and career opportunities.';
-export const SITE_DESCRIPTION = ' ';
+export const SITE_DESCRIPTION =
+  'An interactive conference experience built with Next.js, TypeScript, and modern web APIs.';
 export const DATE = process.env.NEXT_PUBLIC_EVENT_DATE || '18 October 2026';
 export const SHORT_DATE = process.env.NEXT_PUBLIC_SHORT_DATE || 'Oct 18';
 export const FULL_DATE = process.env.NEXT_PUBLIC_FULL_DATE || 'Oct 18, 2026';

@@ -1,292 +1,388 @@
- <p align="center">
-  <img src="public/favicon.ico" alt="TechVerse Logo" width="150" />
-</p>
+<!-- Hero Section -->
 
-<h1 align="center">TechVerse</h1>
+<div align="center">
 
-<p align="center">
-  <strong>Virtual Events • Live Experiences • Career Opportunities</strong>
-</p>
+  <img src="./public/techverse-logo.png" alt="TechVerse Logo" width="180" />
 
-<p align="center">
-  A virtual event platform that brings live stages, speaker sessions,<br/>
-  event schedules, interactive expo experiences, and career opportunities<br/>
-  together in one connected digital destination.
-</p>
+  <h1>TechVerse</h1>
 
-<p align="center">
-  <a href="https://github.com/YOUR_USERNAME/YOUR_REPOSITORY">
-    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub Repository" />
-  </a>
-  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-</p>
+  <p>
+    <strong>Where ideas meet, people connect, and innovation takes the stage.</strong>
+  </p>
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,git,github,vercel&perline=9" alt="Tech Stack Icons" />
-</p>
+  <p>
+    A full-stack virtual conference experience built for the next generation of events.
+  </p>
 
----
+  <p>
+    <img src="https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  </p>
 
-## ✨ Highlights
+  <p>
+    <a href="#-features">Features</a> •
+    <a href="#-tech-stack">Tech Stack</a> •
+    <a href="#-getting-started">Get Started</a> •
+    <a href="#-deployment">Deployment</a>
+  </p>
 
-<table>
-<tr>
-<th align="left">🎤 Events</th>
-<th align="left">🌐 Experiences</th>
-<th align="left">💼 Careers</th>
-<th align="left">⚙️ Platform</th>
-</tr>
-<tr>
-<td valign="top">
-
-- Live stages
-- Speaker sessions
-- Event schedules
-- Event hub
-
-</td>
-<td valign="top">
-
-- Virtual expo
-- Interactive experiences
-- Live audio/video
-- Responsive interface
-
-</td>
-<td valign="top">
-
-- Career opportunities
-- Job discovery
-- Organization showcase
-
-</td>
-<td valign="top">
-
-- Next.js
-- TypeScript
-- Supabase
-- PostgreSQL
-- LiveKit
-
-</td>
-</tr>
-</table>
+</div>
 
 ---
 
-## 🚀 Overview
+TechVerse is a digital conference platform that brings together attendees, speakers, sponsors, and career opportunities in one place. Explore sessions, access personalized tickets, and join live stages through a seamless event experience.
 
-TechVerse is a virtual event platform designed to bring event experiences together in one place. Users can explore event information, browse schedules and speakers, discover expo and career opportunities, and join live stages.
+## ✨ Features
 
-The platform combines event discovery, live interaction, and career exploration into a unified digital experience.
-
----
-
-## 🎯 Features
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🎤 Event Experience
-
-- **Event Hub:** Explore event sections and available content.
-- **Schedule:** Browse event sessions and timing.
-- **Speakers:** Discover event speakers.
-- **Live Stages:** Access stage pages and join live sessions.
-
-</td>
-<td width="50%" valign="top">
-
-### 🌐 Expo & Careers
-
-- **Expo:** Explore expo content and participating organizations.
-- **Jobs:** Browse career and job opportunities.
-- **LiveKit Integration:** Supports real-time audio/video experiences.
-- **Responsive UI:** Designed for desktop and mobile screens.
-
-</td>
-</tr>
-</table>
-
----
+- Responsive conference landing page
+- Attendee registration
+- Secure HTTP-only session authentication
+- Personalized digital tickets
+- Shareable ticket pages
+- Conference schedules and stages
+- Speaker profiles and session details
+- Sponsor showcase
+- Career and job listings
+- Production security headers
+- Server-side validation
+- Deployment-safe fallback data
+- Optional GitHub OAuth integration
+- Optional DatoCMS integration
+- Optional LiveKit integration
+- Optional hCaptcha integration
 
 ## 🛠️ Tech Stack
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,git,github,vercel&perline=9" alt="Tech Stack Icons" />
-</p>
+| Category              | Technology                      |
+| --------------------- | ------------------------------- |
+| Framework             | Next.js 14                      |
+| Frontend              | React 18                        |
+| Language              | TypeScript                      |
+| Styling               | CSS Modules + Tailwind CSS      |
+| Database              | Supabase                        |
+| Authentication        | HTTP-only sessions              |
+| Live Communication    | LiveKit                         |
+| Optional Integrations | DatoCMS, GitHub OAuth, hCaptcha |
+| Deployment            | Vercel                          |
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### Frontend
-
-- Next.js 14
-- React
-- TypeScript
-- Tailwind CSS
-
-### Backend & Database
-
-- Supabase
-- PostgreSQL
-
-</td>
-<td width="50%" valign="top">
-
-### Real-Time Communication
-
-- LiveKit
-- Real-time audio/video experiences
-
-### Deployment & Tools
-
-- Vercel
-- Git
-- GitHub
-
-</td>
-</tr>
-</table>
-
----
-
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```text
-.
-├── public/
-│   └── favicon.ico
-├── media/
-│   ├── dashboard.png
-│   ├── stage.png
-│   ├── join.png
-│   ├── preview.png
-│   ├── ar-1.png
-│   ├── ar-2.png
-│   ├── as-1.png
-│   ├── as-2.png
-│   └── cms.png
-├── src/
-├── .env.example
+TechVerse/
+├── components/              # Reusable React components
+├── lib/                     # Application logic, types and integrations
+├── pages/                   # Pages and API routes
+├── public/                  # Static assets
+├── media/                   # Event media
+├── styles/                  # Global styles
+├── .env.example             # Environment variables template
+├── next.config.js           # Next.js configuration
 ├── package.json
+├── tsconfig.json
 └── README.md
 ```
 
-_Update the structure above if your actual folders differ._
-
----
-
-## ⚡ Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js
-- npm
-- Supabase project credentials
-- LiveKit credentials for live-stage functionality
+Make sure you have the following installed:
+
+- Node.js 20+
+- pnpm
+- A Supabase project for persistent production data
+
+Check your installed versions:
+
+```bash
+node --version
+pnpm --version
+```
 
 ### Installation
 
-1. Clone the repository:
+Clone the repository:
 
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-   ```
+```bash
+git clone <YOUR_REPOSITORY_URL>
+cd TechVerse
+```
 
-2. Navigate to the project directory:
+Install dependencies:
 
-   ```bash
-   cd YOUR_REPOSITORY
-   ```
+```bash
+pnpm install
+```
 
-3. Install dependencies:
+Create the local environment file.
 
-   ```bash
-   npm install
-   ```
+**Windows PowerShell:**
 
-4. Create your environment file:
+```powershell
+Copy-Item .env.example .env.local
+```
 
-   ```bash
-   cp .env.example .env.local
-   ```
+**macOS / Linux:**
 
-   On Windows PowerShell:
+```bash
+cp .env.example .env.local
+```
 
-   ```powershell
-   Copy-Item .env.example .env.local
-   ```
+Start the development server:
 
-5. Configure the required environment variables in `.env.local`.
+```bash
+pnpm dev
+```
 
-6. Start the development server:
+Open the application at:
 
-   ```bash
-   npm run dev
-   ```
-
-7. Open http://localhost:3000.
-
----
+```text
+http://localhost:3000
+```
 
 ## 🔐 Environment Variables
 
-Configure the variables required by your project in `.env.local`.
+Create a `.env.local` file in the project root.
+
+### Supabase
 
 ```env
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-
-# LiveKit
-LIVEKIT_URL=
-LIVEKIT_API_KEY=
-LIVEKIT_API_SECRET=
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_SECRET=
+EMAIL_TO_ID_SECRET=
 ```
 
-Use `.env.example` as the source of truth for the complete variable list. Never commit `.env.local` or expose private server-side credentials.
+The Supabase service-role secret is **server-only** and must never be exposed through a `NEXT_PUBLIC_*` environment variable.
 
----
+The database schema is located at:
 
-## 📜 Available Scripts
+```text
+lib/db-providers/supabase/schema.sql
+```
+
+### Site Configuration
+
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_ORIGIN=http://localhost:3000
+NEXT_PUBLIC_REPO_URL=
+```
+
+For production, replace the localhost values with the deployed application domain.
+
+## 🎥 Live Stage Authentication
+
+Stage pages require a valid TechVerse session.
+
+If a signed-out user opens a stage URL directly, they are redirected to the home registration screen. After submitting their registered email, they can be returned to the requested stage.
+
+Live-stage permissions are handled server-side:
+
+| Role      | Permissions                                                          |
+| --------- | -------------------------------------------------------------------- |
+| Viewer    | Subscribe-only access with no camera, microphone, or data publishing |
+| Speaker   | Viewer permissions plus camera, microphone, and data publishing      |
+| Moderator | Speaker permissions plus LiveKit room administration                 |
+
+Moderator access is restricted to the emails configured through `LIVEKIT_MODERATOR_EMAILS`.
+
+The LiveKit token endpoint also accepts only the three configured TechVerse stage room names.
+
+## 🎙️ LiveKit Live Stages
+
+TechVerse uses LiveKit for real-time live stages.
+
+Create a LiveKit Cloud project and configure the following environment variables:
+
+```env
+NEXT_PUBLIC_LIVEKIT_URL=wss://your-project.livekit.cloud
+
+LIVEKIT_URL=wss://your-project.livekit.cloud
+LIVEKIT_API_KEY=your-api-key
+LIVEKIT_API_SECRET=your-api-secret
+
+NEXT_PUBLIC_LIVEKIT_ROOM_A=techverse-stage-a
+NEXT_PUBLIC_LIVEKIT_ROOM_C=techverse-stage-c
+NEXT_PUBLIC_LIVEKIT_ROOM_M=techverse-stage-m
+```
+
+The browser never receives the LiveKit API secret.
+
+The Next.js API route:
+
+```text
+/api/livekit-token
+```
+
+creates short-lived participant tokens on the server.
+
+Viewer tokens provide subscribe-only access, while speaker tokens allow audio and video publishing.
+
+## 🔌 Optional Integrations
+
+TechVerse supports several optional integrations:
+
+```env
+DATOCMS_READ_ONLY_API_TOKEN=
+
+NEXT_PUBLIC_GITHUB_OAUTH_CLIENT_ID=
+GITHUB_OAUTH_CLIENT_SECRET=
+
+NEXT_PUBLIC_HCAPTCHA_SITE_KEY=
+HCAPTCHA_SECRET_KEY=
+```
+
+These integrations are optional:
+
+- DatoCMS
+- GitHub OAuth
+- hCaptcha
+
+Supabase is required for production persistence.
+
+## 🗄️ Database
+
+Supabase is used as the persistent backend for TechVerse.
+
+The database schema can be found at:
+
+```text
+lib/db-providers/supabase/schema.sql
+```
+
+Apply this schema to your Supabase project before enabling production persistence.
+
+## 🧪 Available Scripts
+
+### Development
 
 ```bash
-npm run dev
-npm run build
-npm run start
-npm run lint
+pnpm dev
 ```
 
-Run only the scripts defined in your project's `package.json`.
+Starts the Next.js development server.
 
----
+### Production Build
 
-## 🔒 Security Notes
+```bash
+pnpm build
+```
 
-- Keep private API keys and secrets on the server.
-- Do not commit environment files containing credentials.
-- Protect authenticated and role-restricted routes on the server.
-- Validate access before issuing LiveKit room tokens.
+Creates an optimized production build.
 
----
+### Production Server
 
-## 🚀 Deployment
+```bash
+pnpm start
+```
 
-The application can be deployed to Vercel or another compatible hosting provider.
+Starts the production application.
 
-Before deployment:
+### Type Checking
 
-1. Configure the required environment variables.
-2. Verify authentication and access-control settings.
-3. Test the production build.
-4. Confirm live-stage functionality with valid LiveKit credentials.
+```bash
+pnpm typecheck
+```
 
----
+Runs the TypeScript type checker.
+
+## 🚢 Deployment
+
+TechVerse can be deployed to Vercel or another Node.js-compatible hosting provider.
+
+### Deploying with Vercel
+
+1. Push the repository to GitHub.
+2. Import the repository into Vercel.
+3. Configure the required environment variables.
+4. Deploy the application.
+
+Recommended configuration:
+
+```text
+Install Command: pnpm install
+Build Command: pnpm build
+Start Command: pnpm start
+```
+
+For production, configure:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SITE_ORIGIN=https://your-domain.com
+```
+
+Never commit sensitive or generated files such as:
+
+```text
+.env.local
+node_modules/
+.next/
+```
+
+## 📱 Responsive Design
+
+TechVerse is designed to provide a consistent experience across:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Responsive layouts are implemented across major areas of the platform, including:
+
+- Navigation
+- Conference schedules
+- Speaker cards
+- Sponsor sections
+- Ticket pages
+- Event content
+
+## 🔒 Security
+
+TechVerse incorporates several security-focused practices:
+
+- HTTP-only session cookies
+- Server-side secret handling
+- Environment-based configuration
+- Production security headers
+- TypeScript strict mode
+- Server-side API validation
+- No client-side exposure of server credentials
+- Graceful handling of unavailable optional services
+- Server-side LiveKit token generation
+- Role-based permissions for live stages
+
+## 🎯 Project Highlights
+
+TechVerse demonstrates practical full-stack development across:
+
+- Next.js application development
+- React and TypeScript
+- Supabase backend integration
+- Authentication and session management
+- API route development
+- Server-side validation
+- Responsive UI development
+- Real-time communication with LiveKit
+- External service integrations
+- Production-oriented security practices
+- Deployment configuration
+
+## 🔮 Future Improvements
+
+Potential improvements include:
+
+- QR-based ticket check-in
+- Real-time attendee interactions
+- Event notifications
+- Speaker dashboard
+- Sponsor management
+- Admin analytics
+- Enhanced live-stage moderation
 
 ## 📄 License
 
-Add a license file if you intend to distribute this project under an open-source license.
+This project is licensed under the **MIT License**.

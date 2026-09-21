@@ -1,0 +1,112 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 16px 16px;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 600px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: #111111;
+  border: 1px solid var(--accents-7);
+  border-radius: var(--space-3x);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3x);
+  padding: var(--space-4x);
+  border-bottom: 1px solid var(--accents-7);
+  color: var(--secondary-color);
+}
+
+.input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.input::placeholder {
+  color: var(--accents-4);
+}
+
+.closeButton {
+  border: 1px solid var(--accents-7);
+  background: none;
+  color: var(--secondary-color);
+  font-size: 12px;
+  border-radius: var(--space-1x);
+  padding: 2px 8px;
+  cursor: pointer;
+  min-height: 28px;
+}
+
+.results {
+  overflow-y: auto;
+  padding: var(--space-2x);
+}
+
+.message {
+  color: var(--secondary-color);
+  padding: var(--space-4x);
+  margin: 0;
+  font-size: 14px;
+}
+
+.group {
+  margin-bottom: var(--space-2x);
+}
+
+.groupLabel {
+  color: var(--accents-4);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: var(--space-2x) var(--space-3x);
+}
+
+.result {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+  padding: var(--space-2x) var(--space-3x);
+  border-radius: var(--space-2x);
+  background: none;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.resultActive {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.resultTitle {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.resultSubtitle {
+  color: var(--secondary-color);
+  font-size: 13px;
+}

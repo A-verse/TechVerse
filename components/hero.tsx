@@ -24,7 +24,7 @@ export default function Hero() {
     <div className={styles.wrapper}>
       <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.hero)}>
         Welcome to the
-        <br className={styleUtils['show-on-desktop']} /> {BRAND_NAME}
+        <br className={styleUtils['show-on-desktop']} /> {BRAND_NAME} conference
       </h1>
       <h2 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.description)}>
         {SITE_DESCRIPTION}
