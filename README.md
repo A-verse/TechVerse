@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="./public/techverse-logo.png" alt="TechVerse Logo" width="180" />
+  <img src="./public/apple-touch-icon.png" alt="TechVerse Logo" width="180" />
 
   <h1>TechVerse</h1>
 
