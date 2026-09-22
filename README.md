@@ -21,13 +21,6 @@
     <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
   </p>
 
-  <p>
-    <a href="#-features">Features</a> •
-    <a href="#-tech-stack">Tech Stack</a> •
-    <a href="#-getting-started">Get Started</a> •
-    <a href="#-deployment">Deployment</a>
-  </p>
-
 </div>
 
 ---
